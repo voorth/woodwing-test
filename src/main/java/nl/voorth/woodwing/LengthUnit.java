@@ -10,8 +10,10 @@ import static java.util.stream.Collectors.*;
 
 public enum LengthUnit
 {
-  METER(1,  "m"),
-  YARD(1.09361, "yd");
+  METRE(1,  "m"),
+  YARD(0.99,"yd"),
+  KILOMETRE(1000, "km"),
+  ;
 
   public final double value;
   public final String symbol;
@@ -27,7 +29,7 @@ public enum LengthUnit
   }
 
   public static LengthUnit of(String symbol) {
-    return lookup.getOrDefault(symbol, METER);
+    return lookup.getOrDefault(symbol, METRE);
   }
 
 }

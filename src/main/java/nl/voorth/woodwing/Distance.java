@@ -12,11 +12,17 @@ public class Distance
   public final double value;
   public final LengthUnit unit;
 
-  private Distance(double value, LengthUnit unit) {
+  Distance(double value, LengthUnit unit) {
     this.value = value;
     this.unit = unit;
   }
 
+  public Distance convertTo(LengthUnit toUnit) {
+    var from = unit.value;
+    var to = toUnit.value;
+
+    return new Distance(value * from / to , toUnit);
+  }
   public static Distance valueOf(String input) {
     String regex = "(?<value>(\\d+\\.)?\\d*)(?<unit>\\p{Alpha}*)";
     var pattern = Pattern.compile(regex);
