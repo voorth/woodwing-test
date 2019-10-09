@@ -29,7 +29,8 @@ public class Distance
     String regex = "(?<value>-?(\\d+\\.)?\\d*)(?<unit>\\p{Alpha}*)";
     var pattern = Pattern.compile(regex);
     var matcher = pattern.matcher(input);
-    matcher.find();
+    if(!matcher.find())
+      throw new IllegalArgumentException(String.format("'%s' is not a valid distance", input));
     String value = matcher.group("value");
     String unit = matcher.group("unit");
     return new Distance(Double.parseDouble(value), LengthUnit.of(unit));
