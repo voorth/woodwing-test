@@ -3,6 +3,7 @@ package nl.voorth.woodwing;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class Distance
@@ -23,8 +24,9 @@ public class Distance
 
     return new Distance(value * from / to , toUnit);
   }
+
   public static Distance valueOf(String input) {
-    String regex = "(?<value>(\\d+\\.)?\\d*)(?<unit>\\p{Alpha}*)";
+    String regex = "(?<value>-?(\\d+\\.)?\\d*)(?<unit>\\p{Alpha}*)";
     var pattern = Pattern.compile(regex);
     var matcher = pattern.matcher(input);
     matcher.find();

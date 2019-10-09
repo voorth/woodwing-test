@@ -11,8 +11,9 @@ import static java.util.stream.Collectors.*;
 public enum LengthUnit
 {
   METRE(1,  "m"),
-  YARD(0.99,"yd"),
+  YARD(0.9144,"yd"),
   KILOMETRE(1000, "km"),
+  MILE(1_609.344, "mi"),
   ;
 
   public final double value;
@@ -28,8 +29,11 @@ public enum LengthUnit
     this.symbol = symbol;
   }
 
-  public static LengthUnit of(String symbol) {
-    return lookup.getOrDefault(symbol, METRE);
+  public static LengthUnit of(String symbol)
+  {
+    if(!lookup.containsKey(symbol))
+      throw new IllegalArgumentException(String.format("'%s' is not a valid unit symbol", symbol));
+    return lookup.get(symbol);
   }
 
 }

@@ -14,7 +14,7 @@ public class WoodwingTestApplicationTests
   @Test
   public void contextLoads()
   {
-    Assertions.fail("failure");
+
   }
 
 }

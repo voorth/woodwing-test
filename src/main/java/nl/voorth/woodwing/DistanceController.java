@@ -9,8 +9,8 @@ public class DistanceController
 {
   @GetMapping("distance")
   public String addDistances(
-    @RequestParam List<String> dist,
-    @RequestParam(required=false, defaultValue = "m") String unit)
+    @RequestParam(required = false, defaultValue = "0m") List<String> dist,
+    @RequestParam(required = false, defaultValue = "m") String unit)
   {
     var lengthUnit = LengthUnit.of(unit);
     var totalDistance = dist.stream()
