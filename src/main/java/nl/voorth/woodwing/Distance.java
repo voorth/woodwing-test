@@ -3,7 +3,6 @@ package nl.voorth.woodwing;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class Distance
